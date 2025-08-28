@@ -1,4 +1,6 @@
 -- set leader keys
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "      -- optional: for local leader (used by some plugins)
 
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -21,6 +23,7 @@ require("config.lsp")
 require("config.options")
 require("lazy").setup({
 	{ import = "plugins" },
+    {"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"},
 }, {
 	change_detection = { notify = false },
 })

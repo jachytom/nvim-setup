@@ -3,6 +3,10 @@ return {
         'stevearc/oil.nvim',
         ---@module 'oil'
         ---@type oil.SetupOpts
+        config = function()
+            require("oil").setup()
+            vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory with Oil"})
+        end,
         opts = {
             default_file_explorer = true,
             view_options = {
